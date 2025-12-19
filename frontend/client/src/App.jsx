@@ -11,14 +11,19 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-   
-    <div>
-      <h1>Authentication App</h1>
-      <Signup />
-      <hr />
-      <Login />
-    </div>
+    <div className="app-container">
+      <h1 className="main-title">🎵 TuneMate</h1>
+      <p className="app-subtitle">Your Music Companion</p>
 
+      <div className="auth-columns">
+        <div className="column">
+          <Signup />
+        </div>
+        <div className="column">
+          <Login />
+        </div>
+      </div>
+    </div>
   )
 }
 

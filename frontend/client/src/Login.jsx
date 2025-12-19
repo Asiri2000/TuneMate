@@ -20,12 +20,29 @@ function Login() {
     }
 
     return (
-        <div>
+        <div className="auth-form">
             <h2>Login</h2>
+            <p className="subtitle">Welcome back!</p>
             <form onSubmit={handleSubmit}>
-                <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
-                <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
-                <button type="submit">Login</button>
+                <div className="form-group">
+                    <label>Email</label>
+                    <input 
+                        type="email" 
+                        placeholder="Enter your email" 
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Password</label>
+                    <input 
+                        type="password" 
+                        placeholder="Enter your password" 
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </div>
+                <button type="submit" className="btn-primary">Sign In</button>
             </form>
         </div>
     );

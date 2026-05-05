@@ -1,13 +1,14 @@
-import { SignUp } from "./SignUp";
+import { Link } from "react-router-dom";
 
 
-export const LoginForm = () => {
+export default function LoginForm() {
 
     return (
 
 
         <>
-              
+              <div className="login-container">
+
               <h1>Welcome to TuneMate</h1>
 
               <form id="loginform">
@@ -23,9 +24,11 @@ export const LoginForm = () => {
                     <button type="submit">Login</button>
 
                     <br />
-                    <p>Don't have an account? <a href="/SignUp">Sign up here</a></p>
+                    <p>Don't have an account? <Link to="/signup">Sign up here</Link></p>
 
               </form>
+
+              </div>
         
 
         

@@ -1,0 +1,18 @@
+{
+  "name": "tunemate",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Asiri2000"
+  },
+  "keywords": [
+    "asiri"
+  ],
+  "author": "asiri",
+  "license": "ISC",
+  "description": ""
+}

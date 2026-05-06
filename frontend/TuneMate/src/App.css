@@ -1,15 +1,40 @@
+
+:root {
+  --ash-dark: #23272f;
+  --ash-light: #2d323c;
+  --blue-main: #2196f3;
+  --blue-accent: #1976d2;
+  --text-main: #e3e6eb;
+  --text-muted: #b0b6c3;
+  --error: #ff5252;
+  --card-bg: #262b34;
+  --input-bg: #23272f;
+  --input-border: #3a3f4b;
+  --shadow: 0 4px 24px rgba(0,0,0,0.25);
+}
+
+body, html, #root, .app-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--ash-dark) 60%, var(--blue-main) 100%);
+  color: var(--text-main);
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: #282c34;
-  color: white;
+  padding: 1.5rem 2.5rem;
+  background: var(--ash-light);
+  color: var(--text-main);
+  box-shadow: var(--shadow);
+  border-bottom: 1px solid var(--input-border);
 }
 
 .logo h1 {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 2rem;
+  letter-spacing: 2px;
 }
 
 .header nav ul {
@@ -21,9 +46,17 @@
 }
 
 .header nav ul li a {
-  color: white;
+  color: var(--text-main);
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.header nav ul li a:hover, .header nav ul li a.active {
+  background: var(--blue-main);
+  color: #fff;
 }
 
 .counter {
@@ -212,56 +245,113 @@
 }
 
 main {
-    padding: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
 }
 
-.form-container {
-    background: #f9f9f9;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    width: 100%;
-    max-width: 400px;
+
+.form-container, .login-container {
+  background: var(--card-bg);
+  padding: 2.5rem 2rem 2rem 2rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 400px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.form-container h2 {
-    margin-bottom: 1.5rem;
-    text-align: center;
-    color: #333;
+
+.form-container h2, .login-container h1 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--blue-main);
+  font-weight: 600;
+  letter-spacing: 1px;
 }
+
 
 .form-group {
-    margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
+  width: 100%;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #555;
+
+.form-group label, .login-container label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-muted);
+  font-size: 1rem;
 }
 
-.form-group input {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+
+.form-group input, .login-container input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--input-border);
+  border-radius: 6px;
+  background: var(--input-bg);
+  color: var(--text-main);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  outline: none;
+  transition: border-color 0.2s;
 }
 
-button[type="submit"] {
-    width: 100%;
-    padding: 0.75rem;
-    border: none;
-    border-radius: 4px;
-    background-color: #282c34;
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.form-group input:focus, .login-container input:focus {
+  border-color: var(--blue-main);
 }
 
-button[type="submit"]:hover {
-    background-color: #4a505a;
+
+.btn-main, button[type="submit"] {
+  width: 100%;
+  padding: 0.8rem 0;
+  border: none;
+  border-radius: 6px;
+  background: var(--blue-main);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 1rem;
+  box-shadow: 0 2px 8px rgba(33,150,243,0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.btn-main:hover, button[type="submit"]:hover {
+  background: var(--blue-accent);
+  box-shadow: 0 4px 16px rgba(33,150,243,0.18);
+}
+
+.login-container p, .form-container p {
+  color: var(--text-muted);
+  margin-top: 1.2rem;
+  font-size: 0.97rem;
+}
+
+.login-container a, .form-container a {
+  color: var(--blue-main);
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.login-container a:hover, .form-container a:hover {
+  color: var(--blue-accent);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .form-container, .login-container {
+    padding: 1.2rem 0.5rem;
+    border-radius: 10px;
+    min-width: 90vw;
+  }
+  .header {
+    flex-direction: column;
+    padding: 1rem 0.5rem;
+  }
 }

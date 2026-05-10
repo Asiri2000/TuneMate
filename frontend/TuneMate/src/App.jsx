@@ -1,22 +1,16 @@
-import { Routes, Route } from 'react-router-dom';
-import './App.css';
-import { Header } from './Header';
-import LoginForm from './LoginForm';
-import SignupForm from './SignupForm';
+import { AddUser } from './AddUser';
+import { ViewUser } from './ViewUser';
+import { Routes, Route, Navigate } from 'react-router-dom';
+
 
 
 function App() {
   return (
-    <>
-      <Header />
-      <main>
-        <Routes>
-          <Route path="/" element={<LoginForm />} />
-          <Route path="/login" element={<LoginForm />} />
-          <Route path="/signup" element={<SignupForm />} />
-        </Routes>
-      </main>
-    </>
+    <Routes>
+      <Route path="/add" element={<AddUser />} />
+      <Route path="/view" element={<ViewUser />} />
+      <Route path="/" element={<Navigate to="/add" replace />} />
+    </Routes>
   );
 }
 

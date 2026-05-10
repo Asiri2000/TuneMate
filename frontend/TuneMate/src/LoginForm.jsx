@@ -25,8 +25,10 @@ export default function LoginForm() {
                 localStorage.setItem("token", data.token);
                 console.log("Login successful!");
                 console.log(data);
+                alert("Login successful!");
             } else {
                 console.log("Login failed:", data.message);
+                alert("Login failed. Please check your credentials.");
             }
         } catch (error) {
             console.error("An error occurred during login:", error);
@@ -34,8 +36,11 @@ export default function LoginForm() {
     };
 
     return (
+
+        <>
+         <h1 className="form-title">Welcome to TuneMate</h1>
         <div className="login-container">
-            <h1 className="form-title">Welcome to TuneMate</h1>
+           
             <form id="loginform" onSubmit={handleLogin} style={{ width: "100%" }}>
                 <div className="form-group">
                     <label htmlFor="username">Username</label>
@@ -65,5 +70,6 @@ export default function LoginForm() {
                 </p>
             </form>
         </div>
+        </>
     );
 }
